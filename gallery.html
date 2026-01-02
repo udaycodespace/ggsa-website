@@ -38,99 +38,111 @@
             <p class="mono-badge">/// ARTIFACTS_&_EVENT_LOGS</p>
         </header>
 
-        <div class="filter-terminal" style="margin-bottom: 2rem;">
-            <span class="prompt">root@ggsa:~/images#</span>
-            <span class="command">ls -la --sort=date</span>
-            <div class="cursor"></div>
-        </div>
-
-        <section class="gallery-grid">
+        <div class="folder-container" id="nexus-folder">
             
-            <div class="gallery-item">
-                <div class="img-wrapper">
-                    <img src="https://picsum.photos/seed/tech1/800/600" alt="Event Photo" class="gallery-img">
-                    <div class="scan-line"></div>
+            <div class="folder-header" onclick="toggleNexusFolder()">
+                <div class="header-left">
+                    <span class="folder-icon">📁</span>
+                    <h2 class="folder-title">>> PROJECT: NEXUS_2025</h2>
                 </div>
-                <div class="img-meta">
-                    <div class="meta-row">
-                        <span>FILE: IMG_0492.raw</span>
-                        <span>SIZE: 4MB</span>
-                    </div>
-                    <div class="meta-desc">NEXUS_2K25_KICKOFF</div>
+                <div class="header-right">
+                    <span class="folder-status" id="folder-status-text">[CLICK_TO_DECRYPT]</span>
+                    <span class="toggle-arrow" id="folder-arrow">▼</span>
                 </div>
             </div>
 
-            <div class="gallery-item">
-                <div class="img-wrapper">
-                    <img src="https://picsum.photos/seed/code/800/600" alt="Event Photo" class="gallery-img">
-                    <div class="scan-line"></div>
-                </div>
-                <div class="img-meta">
-                    <div class="meta-row">
-                        <span>FILE: IMG_0493.raw</span>
-                        <span>SIZE: 12MB</span>
+            <div class="folder-content" id="nexus-content" style="display: none;">
+                
+                <div class="gallery-grid">
+                    
+                    <div class="gallery-item">
+                        <div class="img-wrapper">
+                            <img src="assets/NEXUS_CHAMPIONS_SQD.jpg" alt="Team Winners" class="gallery-img">
+                            <div class="scan-line"></div>
+                        </div>
+                        <div class="img-meta">
+                            <div class="meta-row"><span>FILE: NEXUS_CHAMPIONS_SQD.raw</span><span>14MB</span></div>
+                            <div class="meta-desc">TEAM_WINNERS_PODIUM</div>
+                        </div>
                     </div>
-                    <div class="meta-desc">HACKATHON_FINALS</div>
-                </div>
-            </div>
 
-            <div class="gallery-item">
-                <div class="img-wrapper">
-                    <img src="https://picsum.photos/seed/setup/800/600" alt="Event Photo" class="gallery-img">
-                    <div class="scan-line"></div>
-                </div>
-                <div class="img-meta">
-                    <div class="meta-row">
-                        <span>FILE: WORKSHOP_V1.raw</span>
-                        <span>SIZE: 3MB</span>
+                    <div class="gallery-item">
+                        <div class="img-wrapper">
+                            <img src="assets/RUNNER_UP_UNIT.jpg" alt="Team Runners" class="gallery-img">
+                            <div class="scan-line"></div>
+                        </div>
+                        <div class="img-meta">
+                            <div class="meta-row"><span>FILE: RUNNER_UP_UNIT.raw</span><span>12MB</span></div>
+                            <div class="meta-desc">TEAM_RUNNERS_UP</div>
+                        </div>
                     </div>
-                    <div class="meta-desc">CLOUD_BOOTCAMP</div>
-                </div>
-            </div>
 
-            <div class="gallery-item">
-                <div class="img-wrapper">
-                    <img src="https://picsum.photos/seed/cpu/800/600" alt="Event Photo" class="gallery-img">
-                    <div class="scan-line"></div>
-                </div>
-                <div class="img-meta">
-                    <div class="meta-row">
-                        <span>FILE: TEAM_MEET.raw</span>
-                        <span>SIZE: 5MB</span>
+                    <div class="gallery-item">
+                        <div class="img-wrapper">
+                            <img src="assets/TOP_SCORER_01.jpg" alt="Solo Winner" class="gallery-img">
+                            <div class="scan-line"></div>
+                        </div>
+                        <div class="img-meta">
+                            <div class="meta-row"><span>FILE: TOP_SCORER_01.raw</span><span>8MB</span></div>
+                            <div class="meta-desc">INDIVIDUAL_EXCELLENCE</div>
+                        </div>
                     </div>
-                    <div class="meta-desc">CORE_TEAM_BRIEFING</div>
-                </div>
-            </div>
 
-            <div class="gallery-item">
-                <div class="img-wrapper">
-                    <img src="https://picsum.photos/seed/hack/800/600" alt="Event Photo" class="gallery-img">
-                    <div class="scan-line"></div>
-                </div>
-                <div class="img-meta">
-                    <div class="meta-row">
-                        <span>FILE: AWARD_CEREMONY.raw</span>
-                        <span>SIZE: 8MB</span>
+                    <div class="gallery-item">
+                        <div class="img-wrapper">
+                            <img src="assets/TOP_SCORER_02.jpg" alt="Solo Winner" class="gallery-img">
+                            <div class="scan-line"></div>
+                        </div>
+                        <div class="img-meta">
+                            <div class="meta-row"><span>FILE: TOP_SCORER_02.raw</span><span>9MB</span></div>
+                            <div class="meta-desc">INDIVIDUAL_EXCELLENCE</div>
+                        </div>
                     </div>
-                    <div class="meta-desc">PRIZE_DISTRIBUTION</div>
-                </div>
-            </div>
 
-            <div class="gallery-item">
-                <div class="img-wrapper">
-                    <img src="https://picsum.photos/seed/keyboard/800/600" alt="Event Photo" class="gallery-img">
-                    <div class="scan-line"></div>
-                </div>
-                <div class="img-meta">
-                    <div class="meta-row">
-                        <span>FILE: AUDITORIUM.raw</span>
-                        <span>SIZE: 15MB</span>
+                    <div class="gallery-item">
+                        <div class="img-wrapper">
+                            <img src="assets/AUDITORIUM_WIDE.jpg" alt="Event Environment" class="gallery-img">
+                            <div class="scan-line"></div>
+                        </div>
+                        <div class="img-meta">
+                            <div class="meta-row"><span>FILE: AUDITORIUM_WIDE.raw</span><span>22MB</span></div>
+                            <div class="meta-desc">EVENT_ENVIRONMENT</div>
+                        </div>
                     </div>
-                    <div class="meta-desc">OPENING_CEREMONY</div>
-                </div>
-            </div>
 
-        </section>
+                    <div class="gallery-item">
+                        <div class="img-wrapper">
+                            <img src="assets/OFFICIAL_MANIFESTO.jpg" alt="Event Poster" class="gallery-img" style="object-fit: contain; background: #111;">
+                            <div class="scan-line"></div>
+                        </div>
+                        <div class="img-meta">
+                            <div class="meta-row"><span>FILE: OFFICIAL_MANIFESTO.raw</span><span>5MB</span></div>
+                            <div class="meta-desc">EVENT_POSTER</div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="mission-receipt">
+                    <div class="receipt-header">
+                        <span>/// MISSION_REPORT_LOG</span>
+                        <span>STATUS: SUCCESS</span>
+                    </div>
+                    <div class="receipt-body">
+                        <p class="dedication-text">
+                            "SYSTEM_ACKNOWLEDGE:<br><br>
+                            Execution of Protocol NEXUS_2025 completed successfully.
+                            <br><br>
+                            Priority gratitude directed to <span class="highlight">Dr. Vishnu Vardhan Sir</span>, GPREC Faculties, and all executing nodes (participants) for deploying excellence."
+                        </p>
+                    </div>
+                    <div class="receipt-footer">
+                        <span class="barcode">||| || ||| || |||</span>
+                        <span class="hash-id">LOG_ID: #NEXUS_25_SUCCESS</span>
+                    </div>
+                </div>
+
+            </div> </div>
 
     </div>
 
@@ -141,6 +153,31 @@
             </div>
         </div>
     </footer>
+    
+    <script>
+        function toggleNexusFolder() {
+            var content = document.getElementById('nexus-content');
+            var arrow = document.getElementById('folder-arrow');
+            var status = document.getElementById('folder-status-text');
+            var folder = document.getElementById('nexus-folder');
+
+            if (content.style.display === "none") {
+                // OPEN IT
+                content.style.display = "block";
+                arrow.style.transform = "rotate(180deg)";
+                status.innerHTML = "[ACCESS_GRANTED]";
+                status.style.color = "#ccff00"; // Acid Lime
+                folder.style.borderColor = "#ccff00";
+            } else {
+                // CLOSE IT
+                content.style.display = "none";
+                arrow.style.transform = "rotate(0deg)";
+                status.innerHTML = "[CLICK_TO_DECRYPT]";
+                status.style.color = "#888";
+                folder.style.borderColor = "#333";
+            }
+        }
+    </script>
     <script src="script.js"></script>
 </body>
 </html>

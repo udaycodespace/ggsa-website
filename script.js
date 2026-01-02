@@ -115,16 +115,17 @@ function initScrollEffects() {
 }
 
 /* --- 3. Hero Text Rotator --- */
+/* --- 3. Hero Text Rotator (Short & Crispy) --- */
 function initHeroRotator() {
     const heroTextEl = document.getElementById('dynamic-hero-text');
-    if (!heroTextEl) return; // Exit if not on home page
+    if (!heroTextEl) return; 
 
-    // The Mission Directives
+    // THE NEW SHORT LIST
     const phrases = [
-        "ENGINEERING<br>INTELLIGENT<br>SYSTEMS",
-        "LEADING<br>CAMPUS<br>INNOVATION",
-        "LEARN.<br>BUILD.<br>INNOVATE.",
-        "DEPLOYING<br>THE NEXT<br>ERA"
+        "SYSTEM<br>ONLINE",
+        "CODE<br>IS<br>LAW",
+        "GEMINI<br>CORE",
+        "BUILD<br>THE<br>NEXT"
     ];
 
     let currentIndex = 0;
@@ -133,7 +134,7 @@ function initHeroRotator() {
         // 1. Fade out
         heroTextEl.classList.add('fade-out');
 
-        // 2. Wait 500ms for fade out, then swap text
+        // 2. Wait 500ms, swap text
         setTimeout(() => {
             currentIndex = (currentIndex + 1) % phrases.length;
             heroTextEl.innerHTML = phrases[currentIndex];
@@ -142,7 +143,7 @@ function initHeroRotator() {
             heroTextEl.classList.remove('fade-out');
         }, 500);
 
-    }, 5000); // 5 seconds
+    }, 2500); // Changed to 2.5 seconds for faster impact
 }
 
 /* --- 4. Countdown Timer (For Events Page) --- */
