@@ -610,18 +610,52 @@ details[open] summary .toggle-icon { transform: rotate(45deg); color: var(--acce
     100% { top: 100%; }
 }
 /* ========================================= */
-/* /// SYSTEM_OVERRIDE: MOBILE KERNEL v2.0   */
+/* /// SYSTEM_OVERRIDE: MOBILE KERNEL v3.0   */
 /* ========================================= */
 
-/* 1. GLOBAL SAFETY (Stops side-scrolling) */
+/* 1. GLOBAL SAFETY (Stops side-scrolling completely) */
 html, body {
     max-width: 100%;
     overflow-x: hidden;
+    position: relative;
 }
 
 @media (max-width: 768px) {
 
-    /* 2. FORCE SINGLE COLUMN LAYOUT (The "Stack" Fix) */
+    /* 2. PAGE CONTAINER FIX */
+    .page-wrapper {
+        padding: 1rem !important;
+        width: 100%;
+        overflow: hidden; /* Cuts off anything sticking out */
+    }
+
+    /* 3. HERO TITLE FIX (Home Page) */
+    /* Drastically reduced size for mobile to fit "ENGINEERING" */
+    .hero-title {
+        font-size: clamp(2rem, 9vw, 3.5rem) !important; 
+        line-height: 1.1;
+        width: 100%;
+        word-wrap: break-word;
+    }
+
+    /* 4. GLITCH TEXT FIX (Events, Logs, etc.) */
+    /* This fixes "SYSTEM_EVENTS" and "DEV_LOGS" cutting off */
+    .glitch-text {
+        font-size: clamp(1.8rem, 8vw, 3rem) !important;
+        line-height: 1;
+        width: 100%;
+        display: block;
+    }
+
+    /* 5. BLOG TITLES FIX */
+    /* Fixes the "SYSTEM_OVERRIDE" title in blog */
+    .article-title {
+        font-size: clamp(1.5rem, 7vw, 2.5rem) !important;
+        line-height: 1.2;
+        word-break: break-word; /* Forces long words to wrap */
+    }
+
+    /* 6. GRID STACKING (Forces single column) */
     .hero-grid,
     .gallery-grid, 
     .roster-grid, 
@@ -633,38 +667,25 @@ html, body {
         display: flex !important;
         flex-direction: column !important;
         width: 100% !important;
-        grid-template-columns: 1fr !important;
         gap: 2rem;
     }
 
-    /* 3. HERO TITLE FIX (Stops "ENGINEERING" from breaking weirdly) */
-    .hero-title {
-        font-size: 11vw !important; /* Scales to screen width exactly */
-        line-height: 1;
-        word-break: keep-all; /* Tries to keep words together */
-        hyphens: auto;
-    }
-
-    .hero-subtitle {
-        font-size: 0.9rem;
+    /* 7. IMAGE FIXES */
+    /* Prevents images from pushing layout width */
+    img, .gallery-img, .node-avatar img {
         max-width: 100%;
+        height: auto;
     }
 
-    /* 4. CONTAINER BREATHING ROOM */
-    .page-wrapper {
-        padding: 1.5rem 1rem !important; /* Less padding on sides */
+    /* 8. NAV BAR SAFETY */
+    .nav-container {
+        padding: 1rem;
         width: 100%;
     }
-
-    .hero-main {
-        padding: 2rem 1rem;
-        border-right: none; /* Remove desktop border */
-        min-height: auto; /* Allow height to shrink */
-    }
-
-    /* 5. SIDEBAR / BADGE FIX */
+    
+    /* 9. SIDEBAR / BADGE FIX */
     .hero-side {
-        display: flex !important; /* Show it on mobile */
+        display: flex !important;
         flex-direction: column;
         padding: 2rem 1rem;
         border-top: 1px solid var(--border);
@@ -672,36 +693,14 @@ html, body {
     }
 
     .system-badge {
-        margin-top: 2rem; /* Give badge space */
-        width: 100%; /* Full width badge on mobile looks cool */
+        margin-top: 2rem;
+        width: 100%; 
         max-width: 300px;
     }
 
-    /* 6. WINNERS PODIUM FIX (Rank 1 on top) */
-    .podium-grid {
-        margin-top: 2rem;
-    }
-    .rank-1 { order: 1; margin-bottom: 2rem; }
-    .rank-2 { order: 2; }
-    .rank-3 { order: 3; }
-    
-    /* Remove hover transforms on mobile (prevents sticking) */
-    .card:hover, .node-card:hover, .bounty-card:hover {
-        transform: none !important;
-    }
-
-    /* 7. NAVIGATION BAR SAFETY */
-    .nav-container {
-        padding: 1rem;
-    }
-    .nav-logo {
-        font-size: 1rem; /* Smaller logo */
-    }
-    
-    /* 8. TABLE/LIST FIXES */
-    .list-row {
-        gap: 0.5rem;
-        font-size: 0.8rem;
+    /* 10. FORCE WRAPPING ON LONG TEXT */
+    p, h1, h2, h3, h4, h5, h6, span {
+        overflow-wrap: break-word;
     }
 }
 
