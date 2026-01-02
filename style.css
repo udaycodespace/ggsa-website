@@ -631,75 +631,6 @@ html, body {
         padding-top: 0.5rem;
     }
 
-<<<<<<< HEAD
-@keyframes scanDown {
-    0% { top: 0%; }
-    100% { top: 100%; }
-}
-/* ========================================= */
-/* /// SYSTEM_OVERRIDE: MOBILE KERNEL v3.0   */
-/* ========================================= */
-
-/* 1. GLOBAL SAFETY (Stops side-scrolling completely) */
-html, body {
-    max-width: 100%;
-    overflow-x: hidden;
-    position: relative;
-}
-
-@media (max-width: 768px) {
-
-    /* 2. PAGE CONTAINER FIX */
-    .page-wrapper {
-        padding: 1rem !important;
-        width: 100%;
-        overflow: hidden; /* Cuts off anything sticking out */
-    }
-
-    /* 3. HERO TITLE FIX (Home Page) */
-    /* Drastically reduced size for mobile to fit "ENGINEERING" */
-    .hero-title {
-        font-size: clamp(2rem, 9vw, 3.5rem) !important; 
-        line-height: 1.1;
-        width: 100%;
-        word-wrap: break-word;
-    }
-
-    /* 4. GLITCH TEXT FIX (Events, Logs, etc.) */
-    /* This fixes "SYSTEM_EVENTS" and "DEV_LOGS" cutting off */
-    .glitch-text {
-        font-size: clamp(1.8rem, 8vw, 3rem) !important;
-        line-height: 1;
-        width: 100%;
-        display: block;
-    }
-
-    /* 5. BLOG TITLES FIX */
-    /* Fixes the "SYSTEM_OVERRIDE" title in blog */
-    .article-title {
-        font-size: clamp(1.5rem, 7vw, 2.5rem) !important;
-        line-height: 1.2;
-        word-break: break-word; /* Forces long words to wrap */
-    }
-
-    /* 6. GRID STACKING (Forces single column) */
-    .hero-grid,
-    .gallery-grid, 
-    .roster-grid, 
-    .bento-grid, 
-    .podium-grid,
-    .tracks-grid, 
-    .blog-layout,
-    .list-row {
-        display: flex !important;
-        flex-direction: column !important;
-        width: 100% !important;
-        gap: 2rem;
-    }
-
-    /* 7. IMAGE FIXES */
-    /* Prevents images from pushing layout width */
-=======
     /* --- 6. NAVIGATION BAR --- */
     .nav-container {
         padding: 1rem 1.2rem;
@@ -727,41 +658,11 @@ html, body {
     }
 
     /* --- 8. IMAGE & CARD SAFETY --- */
->>>>>>> ce6d9b4 (Small UI/UX Change)
     img, .gallery-img, .node-avatar img {
         max-width: 100%;
         height: auto;
     }
 
-<<<<<<< HEAD
-    /* 8. NAV BAR SAFETY */
-    .nav-container {
-        padding: 1rem;
-        width: 100%;
-    }
-    
-    /* 9. SIDEBAR / BADGE FIX */
-    .hero-side {
-        display: flex !important;
-        flex-direction: column;
-        padding: 2rem 1rem;
-        border-top: 1px solid var(--border);
-        min-height: auto;
-    }
-
-    .system-badge {
-        margin-top: 2rem;
-        width: 100%; 
-        max-width: 300px;
-    }
-
-    /* 10. FORCE WRAPPING ON LONG TEXT */
-    p, h1, h2, h3, h4, h5, h6, span {
-        overflow-wrap: break-word;
-    }
-}
-
-=======
     .card, .node-card, .gallery-item {
         width: 100%;
     }
@@ -780,4 +681,3 @@ html, body {
         font-size: 1rem;
     }
 }
->>>>>>> ce6d9b4 (Small UI/UX Change)
