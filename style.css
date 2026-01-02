@@ -609,3 +609,90 @@ details[open] summary .toggle-icon { transform: rotate(45deg); color: var(--acce
     0% { top: 0%; }
     100% { top: 100%; }
 }
+/* ========================================= */
+/* /// MOBILE SYSTEM PATCH (RESPONSIVENESS)  */
+/* ========================================= */
+
+@media (max-width: 768px) {
+
+    /* --- 1. FORCE GRIDS TO STACK (Single Column) --- */
+    /* This fixes Gallery, Roster, Winners, and Events */
+    .gallery-grid, 
+    .roster-grid, 
+    .bento-grid, 
+    .podium-grid,
+    .tracks-grid, 
+    .blog-layout {
+        grid-template-columns: 1fr !important;
+        gap: 2rem;
+    }
+
+    /* --- 2. FIX TYPOGRAPHY SCALING --- */
+    /* Prevents huge text from breaking the screen */
+    .hero-title {
+        font-size: 13vw !important; /* Scales with screen width */
+        line-height: 1.1;
+    }
+    
+    .page-header h1 {
+        font-size: 2.5rem;
+    }
+
+    .article-title {
+        font-size: 1.8rem;
+    }
+
+    /* --- 3. ADJUST SPACING --- */
+    /* Reduces the massive gaps on mobile */
+    .page-wrapper {
+        padding: 1.5rem; /* Less padding on sides */
+    }
+
+    .page-header {
+        margin: 2rem 0;
+    }
+
+    .timeline-block {
+        padding-left: 1.5rem; /* Tighter timeline */
+    }
+
+    .marker {
+        left: -1.9rem; /* Adjust marker position for tighter timeline */
+    }
+
+    /* --- 4. WINNERS PODIUM FIX --- */
+    /* On mobile, Rank 1 should be on top, not in the middle */
+    .podium-grid {
+        display: flex !important;
+        flex-direction: column;
+    }
+    
+    /* Reorder: Rank 1 first, then 2, then 3 */
+    .rank-1 { order: 1; }
+    .rank-2 { order: 2; }
+    .rank-3 { order: 3; }
+
+    /* --- 5. GALLERY FIX --- */
+    .img-wrapper {
+        aspect-ratio: 16/9; /* Wider format looks better on phone scrolling */
+    }
+
+    /* --- 6. NAV BAR FIX --- */
+    .nav-container {
+        padding: 1rem; /* Tighter nav bar */
+    }
+    
+    /* Ensure mobile menu doesn't get hidden behind things */
+    .nav-links {
+        background: rgba(10, 10, 12, 0.98); /* Solid background */
+        backdrop-filter: blur(15px);
+        height: 100vh; /* Full screen menu */
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+    }
+    
+    .nav-item {
+        font-size: 1.5rem; /* Bigger links for thumb tapping */
+    }
+}
