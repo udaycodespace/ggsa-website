@@ -610,89 +610,98 @@ details[open] summary .toggle-icon { transform: rotate(45deg); color: var(--acce
     100% { top: 100%; }
 }
 /* ========================================= */
-/* /// MOBILE SYSTEM PATCH (RESPONSIVENESS)  */
+/* /// SYSTEM_OVERRIDE: MOBILE KERNEL v2.0   */
 /* ========================================= */
+
+/* 1. GLOBAL SAFETY (Stops side-scrolling) */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
 
 @media (max-width: 768px) {
 
-    /* --- 1. FORCE GRIDS TO STACK (Single Column) --- */
-    /* This fixes Gallery, Roster, Winners, and Events */
+    /* 2. FORCE SINGLE COLUMN LAYOUT (The "Stack" Fix) */
+    .hero-grid,
     .gallery-grid, 
     .roster-grid, 
     .bento-grid, 
     .podium-grid,
     .tracks-grid, 
-    .blog-layout {
+    .blog-layout,
+    .list-row {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
         grid-template-columns: 1fr !important;
         gap: 2rem;
     }
 
-    /* --- 2. FIX TYPOGRAPHY SCALING --- */
-    /* Prevents huge text from breaking the screen */
+    /* 3. HERO TITLE FIX (Stops "ENGINEERING" from breaking weirdly) */
     .hero-title {
-        font-size: 13vw !important; /* Scales with screen width */
-        line-height: 1.1;
-    }
-    
-    .page-header h1 {
-        font-size: 2.5rem;
+        font-size: 11vw !important; /* Scales to screen width exactly */
+        line-height: 1;
+        word-break: keep-all; /* Tries to keep words together */
+        hyphens: auto;
     }
 
-    .article-title {
-        font-size: 1.8rem;
+    .hero-subtitle {
+        font-size: 0.9rem;
+        max-width: 100%;
     }
 
-    /* --- 3. ADJUST SPACING --- */
-    /* Reduces the massive gaps on mobile */
+    /* 4. CONTAINER BREATHING ROOM */
     .page-wrapper {
-        padding: 1.5rem; /* Less padding on sides */
+        padding: 1.5rem 1rem !important; /* Less padding on sides */
+        width: 100%;
     }
 
-    .page-header {
-        margin: 2rem 0;
+    .hero-main {
+        padding: 2rem 1rem;
+        border-right: none; /* Remove desktop border */
+        min-height: auto; /* Allow height to shrink */
     }
 
-    .timeline-block {
-        padding-left: 1.5rem; /* Tighter timeline */
-    }
-
-    .marker {
-        left: -1.9rem; /* Adjust marker position for tighter timeline */
-    }
-
-    /* --- 4. WINNERS PODIUM FIX --- */
-    /* On mobile, Rank 1 should be on top, not in the middle */
-    .podium-grid {
-        display: flex !important;
+    /* 5. SIDEBAR / BADGE FIX */
+    .hero-side {
+        display: flex !important; /* Show it on mobile */
         flex-direction: column;
+        padding: 2rem 1rem;
+        border-top: 1px solid var(--border);
+        min-height: auto;
     }
-    
-    /* Reorder: Rank 1 first, then 2, then 3 */
-    .rank-1 { order: 1; }
+
+    .system-badge {
+        margin-top: 2rem; /* Give badge space */
+        width: 100%; /* Full width badge on mobile looks cool */
+        max-width: 300px;
+    }
+
+    /* 6. WINNERS PODIUM FIX (Rank 1 on top) */
+    .podium-grid {
+        margin-top: 2rem;
+    }
+    .rank-1 { order: 1; margin-bottom: 2rem; }
     .rank-2 { order: 2; }
     .rank-3 { order: 3; }
-
-    /* --- 5. GALLERY FIX --- */
-    .img-wrapper {
-        aspect-ratio: 16/9; /* Wider format looks better on phone scrolling */
+    
+    /* Remove hover transforms on mobile (prevents sticking) */
+    .card:hover, .node-card:hover, .bounty-card:hover {
+        transform: none !important;
     }
 
-    /* --- 6. NAV BAR FIX --- */
+    /* 7. NAVIGATION BAR SAFETY */
     .nav-container {
-        padding: 1rem; /* Tighter nav bar */
+        padding: 1rem;
+    }
+    .nav-logo {
+        font-size: 1rem; /* Smaller logo */
     }
     
-    /* Ensure mobile menu doesn't get hidden behind things */
-    .nav-links {
-        background: rgba(10, 10, 12, 0.98); /* Solid background */
-        backdrop-filter: blur(15px);
-        height: 100vh; /* Full screen menu */
-        justify-content: center;
-        align-items: center;
-        gap: 2rem;
-    }
-    
-    .nav-item {
-        font-size: 1.5rem; /* Bigger links for thumb tapping */
+    /* 8. TABLE/LIST FIXES */
+    .list-row {
+        gap: 0.5rem;
+        font-size: 0.8rem;
     }
 }
+
